@@ -1,11 +1,11 @@
 import { ErrorType } from './error-type';
 
-export interface BaseError<T = unknown> {
+export type BaseError<T = unknown> = {
   kind: ErrorType;
   message: string;
   context?: T;
   stack?: string;
-}
+};
 
 export const newBaseError = <T = unknown>(
   message: string,

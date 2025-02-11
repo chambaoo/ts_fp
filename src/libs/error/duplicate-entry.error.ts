@@ -1,7 +1,7 @@
 import { ErrorType } from './error-type';
 import { BaseError } from './base.error';
 
-export interface DuplicateEntryError<T = unknown> extends BaseError<T> {}
+export type DuplicateEntryError<T = unknown> = BaseError<T>;
 
 export const newDuplicateEntryError = <T = unknown>(
   message: string,

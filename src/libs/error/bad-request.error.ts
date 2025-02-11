@@ -1,6 +1,6 @@
 import { BaseError } from './base.error';
 
-export interface BadRequestError<T = unknown> extends BaseError<T> {}
+export type BadRequestError<T = unknown> = BaseError<T>;
 
 export const newBadRequestError = <T = unknown>(
   message: string,
