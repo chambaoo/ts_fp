@@ -1,11 +1,6 @@
-import { ErrorType } from './error-type';
+import { BaseError } from './base.error';
 
-export type BadRequestError<T = unknown> = {
-  kind: ErrorType;
-  message: string;
-  context?: T;
-  stack?: string;
-};
+export interface BadRequestError<T = unknown> extends BaseError<T> {}
 
 export const newBadRequestError = <T = unknown>(
   message: string,
@@ -15,5 +10,5 @@ export const newBadRequestError = <T = unknown>(
   kind: 'BadRequestError',
   message,
   context,
-  stack: stack ?? new Error().stack, // エラーのスタックトレースを取得（オプション）
+  stack: stack ?? new Error().stack,
 });

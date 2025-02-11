@@ -1,1 +1,5 @@
-export type ErrorType = 'BadRequestError' | 'InternalServerError';
+export type ErrorType =
+  | 'BaseError'
+  | 'BadRequestError'
+  | 'DuplicateEntryError'
+  | 'InternalServerError';
