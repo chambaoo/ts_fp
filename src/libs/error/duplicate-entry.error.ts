@@ -1,4 +1,3 @@
-import { ErrorType } from './error-type';
 import { BaseError } from './base.error';
 
 export type DuplicateEntryError<T = unknown> = BaseError<T>;
