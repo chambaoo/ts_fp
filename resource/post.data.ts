@@ -1,4 +1,4 @@
-import { Post } from '../libs/domain/post.model';
+import { Post } from '../src/libs/domain/post.model';
 
 export const inMemoryPosts: Post[] = [
   {

@@ -1,5 +1,5 @@
 import { err, ok } from 'neverthrow';
-import { searchPosts } from './libs/post.repository';
+import { searchPosts } from './libs/repository/post.repository';
 import { pagination } from './libs/domain/pagination';
 
 const main = () => {

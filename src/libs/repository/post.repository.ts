@@ -1,14 +1,14 @@
 import { err, ok, Result } from 'neverthrow';
-import { Post } from './domain/post.model';
-import { inMemoryPosts } from '../resource/post.data';
-import { newBadRequestError } from './error/bad-request.error';
-import { Pagination } from './domain/pagination';
+import { Post } from '../domain/post.model';
+import { inMemoryPosts } from '../../../resource/post.data';
+import { newBadRequestError } from '../error/bad-request.error';
+import { Pagination } from '../domain/pagination';
 import {
   newDuplicateEntryError,
   DuplicateEntryError,
-} from './error/duplicate-entry.error';
+} from '../error/duplicate-entry.error';
 
-export const searchPosts = (pagination: Pagination) => {
+const searchPosts = (pagination: Pagination) => {
   if (pagination.limit <= 0) {
     return err(
       newBadRequestError<typeof pagination>(
@@ -21,7 +21,7 @@ export const searchPosts = (pagination: Pagination) => {
   return ok(inMemoryPosts.slice(pagination.offset, pagination.limit));
 };
 
-export const findPost = (postId: string) => {
+const findPost = (postId: string) => {
   const post = inMemoryPosts.find((post) => post.postId === postId);
   if (!post) {
     return err(
@@ -35,9 +35,7 @@ export const findPost = (postId: string) => {
   return ok(post);
 };
 
-export const addPost = (
-  post: Post,
-): Result<Post, DuplicateEntryError<Post>> => {
+const addPost = (post: Post): Result<Post, DuplicateEntryError<Post>> => {
   if (inMemoryPosts.find((p) => p.postId === post.postId)) {
     return err(
       newDuplicateEntryError<typeof post>(
@@ -51,6 +49,8 @@ export const addPost = (
   return ok(post);
 };
 
-export const updatePost = () => {
+const updatePost = () => {
   return ok({});
 };
+
+export { searchPosts, findPost, addPost, updatePost };
