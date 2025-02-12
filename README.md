@@ -13,3 +13,13 @@ pnpm add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 pnpm add -D prettier eslint-config-prettier eslint-plugin-prettier
 ```
+
+### Jest
+
+```
+pnpm add -D jest ts-jest @types/jest
+```
+
+```
+pnpm ts-jest config:init
+```
